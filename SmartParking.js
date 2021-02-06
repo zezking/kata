@@ -1,14 +1,10 @@
 function whereCanIPark(spots, vehicle) {
   // Code here!
-  let pos = [];
-
-
-
-
+  let pos = []; //initialize an array to store the parking spot
 
   for (let i = 0; i < spots.length; i++) {
-    if (pos.length < 2) {
-      for (let j = 0; j < spots[i].length; j++) {
+    if ((pos.length < 2)) { //exit if the first x and y value is found 
+      for (let j = 0; j < spots[i].length; j++) { //going through the second dimension array to look for the right spot
         if (vehicle === 'regular' && spots[i][j] === "R") {
           pos.push(j, i);
         }
@@ -21,27 +17,13 @@ function whereCanIPark(spots, vehicle) {
     }
   }
 
-  if (pos.length > 0) {
+  if (pos.length > 0) { //if there is no available spot found, return false other wise return x and y value
     return pos;
   } else {
     return false;
   }
 
 }
-
-
-//   for (let j = 0; j < spots.length; j++) {
-//     if (vehicle === 'regular' && spots[i][j] === "R") {
-//       pos.push(j);
-//     }
-//     else if (vehicle === 'small' && (spots[i][j] === "R" || spots[i][j] === "S")) {
-//       pos.push(j);
-//     } else if (vehicle === 'motorcycles' && (spots[i][j] === "R" || spots[i][j] === "S" || spots[i][j] === "M")) {
-//       pos.push(j);
-//     }
-//   }
-//  pos.push(i);
-
 console.log(whereCanIPark(
   [
     // COLUMNS ARE X

@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../lighthouse-js-fundamentals"
+    },
+    {
+      "path": "../javascripting"
+    },
+    {
+      "path": "../the-browser"
+    },
+    {
+      "path": "../StretchProject"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "barChart"
+  }
+}
