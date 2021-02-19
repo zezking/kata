@@ -1,33 +1,31 @@
 function checkAir(samples, threshold) {
   let counter = 0; //initializa to count how many days are dirty
-  let pollution = 0;//initializa to count the percentage of pollution days
 
-  for (let i = 0; i < samples.length; i++) {
-    if (samples[i] === 'dirty') {
-      counter++;  //store how many days are dirty
-    }
-  }
-  pollution = counter / samples.length;  //calculate the percentage of dirty days among 10 days
+  dirtyDays = samples.filter((x) => x === "dirty").length; // filter create a new array with the conditionals. here I filtered out only the dirtydays and count it's length to know how many dirty days there are
 
-  if (pollution > threshold) {
-    return "Polluted"; //return if the pollution percentage is higher than threshold
-  } else {
-    return "Clean"; //otherwise return clean
-  }
-
+  return dirtyDays / samples.length > threshold ? "polluted" : "clean";
 }
 
-console.log(checkAir(
-  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
-  0.3
-));
+console.log(
+  checkAir(
+    [
+      "clean",
+      "clean",
+      "dirty",
+      "clean",
+      "dirty",
+      "clean",
+      "clean",
+      "dirty",
+      "clean",
+      "dirty",
+    ],
+    0.3
+  )
+);
 
-console.log(checkAir(
-  ['dirty', 'dirty', 'dirty', 'dirty', 'clean'],
-  0.25
-));
+console.log(checkAir(["dirty", "dirty", "dirty", "dirty", "clean"], 0.25));
 
-console.log(checkAir(
-  ['clean', 'dirty', 'clean', 'dirty', 'clean', 'dirty', 'clean'],
-  0.9
-))
+console.log(
+  checkAir(["clean", "dirty", "clean", "dirty", "clean", "dirty", "clean"], 0.9)
+);
